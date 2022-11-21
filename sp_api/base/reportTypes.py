@@ -13,7 +13,15 @@ class ReportType(str, Enum):
     GET_MERCHANT_CANCELLED_LISTINGS_DATA = 'GET_MERCHANT_CANCELLED_LISTINGS_DATA'
     GET_MERCHANT_LISTINGS_DEFECT_DATA = 'GET_MERCHANT_LISTINGS_DEFECT_DATA'
     GET_PAN_EU_OFFER_STATUS = 'GET_PAN_EU_OFFER_STATUS'
+    """"This report is only available to FBA sellers in the Spain, UK, France, Germany, and Italy marketplaces.
+
+    Tab-delimited flat file report that contains enrollment status and eligibility information for the Pan-European FBA program for each of the seller's Amazon-fulfilled listings. For more information, see the Seller Central Help"""
     GET_MFN_PAN_EU_OFFER_STATUS = 'GET_MFN_PAN_EU_OFFER_STATUS'
+    """"This report is only available in the Spain, UK, France, Germany, and Italy marketplaces.
+
+    Tab-delimited flat file report that contains eligibility information for the Pan-European FBA Program for each of the seller's self-fulfilled listings. Self-fulfilled listings are not allowed in the Pan-European FBA program, and this report can help sellers determine whether to convert any of their self-fulfilled listings to Amazon-fulfilled listings in order to enroll them in the program. For more information, see the Seller Central Help
+    
+    Can be requested"""
     GET_FLAT_FILE_GEO_OPPORTUNITIES = 'GET_FLAT_FILE_GEO_OPPORTUNITIES'
     GET_REFERRAL_FEE_PREVIEW_REPORT = 'GET_REFERRAL_FEE_PREVIEW_REPORT'
     GET_FLAT_FILE_ACTIONABLE_ORDER_DATA_SHIPPING = 'GET_FLAT_FILE_ACTIONABLE_ORDER_DATA_SHIPPING'
@@ -118,3 +126,30 @@ class ReportType(str, Enum):
     GET_B2B_PRODUCT_OPPORTUNITIES_RECOMMENDED_FOR_YOU = "GET_B2B_PRODUCT_OPPORTUNITIES_RECOMMENDED_FOR_YOU"
     GET_B2B_PRODUCT_OPPORTUNITIES_NOT_YET_ON_AMAZON = "GET_B2B_PRODUCT_OPPORTUNITIES_NOT_YET_ON_AMAZON"
 
+    #Inventory Report Conventional Names
+    INVENTORY_REPORT='GET_FLAT_FILE_OPEN_LISTINGS_DATA'
+    """Tab-delimited flat file open listings report that contains a summary of the seller's product listings with the price and quantity for each SKU
+    
+    Can be requested"""
+    ALL_LISTINGS_REPORT='GET_MERCHANT_LISTINGS_ALL_DATA'
+    """Tab-delimited flat file detailed all listings report"""
+    ACTIVE_LISTINGS_REPORT='GET_MERCHANT_LISTINGS_DATA'
+    """Tab-delimited flat file detailed active listings report"""
+    INACTIVE_LISTINGS_REPORT='GET_MERCHANT_LISTINGS_INACTIVE_DATA'
+    """Tab-delimited flat file detailed inactive listings report"""
+    OPEN_LISTINGS_REPORT='GET_MERCHANT_LISTINGS_DATA_BACK_COMPAT'
+    """Tab-delimited flat file open listings report"""
+    OPEN_LISTINGS_REPORT_LITE='GET_MERCHANT_LISTINGS_DATA_LITE'
+    """Tab-delimited flat file active listings report that contains only the SKU, ASIN, Price, and Quantity fields for items that have a quantity greater than zero"""
+    OPEN_LISTINGS_REPORT_LITER='GET_MERCHANT_LISTINGS_DATA_LITER'
+    """Tab-delimited flat file active listings report that contains only the SKU and Quantity fields for items that have a quantity greater than zero"""
+    CANCELED_LISTINGS_REPORT='GET_MERCHANT_CANCELLED_LISTINGS_DATA'
+    """Tab-delimited flat file canceled listings report"""
+    SUPPRESSED_LISTINGS_REPORT='GET_MERCHANTS_LISTINGS_FYP_REPORT'
+    """Tab-delimited flat file that contains suppressed listings, the reason each listing is suppressed, and instructions for removing each suppression"""
+
+    REFERRAL_FEE_PREVIEW_REPORT='GET_REFERRAL_FEE_PREVIEW_REPORT'
+    """"Tab-delimited flat file that contains the seller's open listings as well as the price and estimated referral fees for each SKU.
+
+    The information in this report may be up to 24 hours old. Please do not request a report more than once per 24 hour period
+    Can be requested"""
