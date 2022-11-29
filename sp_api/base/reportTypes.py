@@ -126,7 +126,7 @@ class ReportType(str, Enum):
     GET_B2B_PRODUCT_OPPORTUNITIES_RECOMMENDED_FOR_YOU = "GET_B2B_PRODUCT_OPPORTUNITIES_RECOMMENDED_FOR_YOU"
     GET_B2B_PRODUCT_OPPORTUNITIES_NOT_YET_ON_AMAZON = "GET_B2B_PRODUCT_OPPORTUNITIES_NOT_YET_ON_AMAZON"
 
-    #Inventory Report Conventional Names
+    # Inventory Report Conventional Names
     INVENTORY_REPORT='GET_FLAT_FILE_OPEN_LISTINGS_DATA'
     """Tab-delimited flat file open listings report that contains a summary of the seller's product listings with the price and quantity for each SKU
     
@@ -153,3 +153,12 @@ class ReportType(str, Enum):
 
     The information in this report may be up to 24 hours old. Please do not request a report more than once per 24 hour period
     Can be requested"""
+
+    # Order & Fulfilment Report Conventional Names
+    ALL_ORDERS_REPORT_BY_ORDER_DATE='GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL'
+    """For all sellers
+
+    Returns all orders placed in the specified date range regardless of fulfillment channel or shipment status. This report is intended for order tracking, not to drive a seller's fulfillment process. It does not include customer identifying information and scheduling is not supported
+
+    Can be requested
+    """
