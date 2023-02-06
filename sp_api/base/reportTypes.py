@@ -25,14 +25,9 @@ class ReportType(str, Enum):
     GET_FLAT_FILE_GEO_OPPORTUNITIES = 'GET_FLAT_FILE_GEO_OPPORTUNITIES'
     GET_REFERRAL_FEE_PREVIEW_REPORT = 'GET_REFERRAL_FEE_PREVIEW_REPORT'
     GET_FLAT_FILE_ACTIONABLE_ORDER_DATA_SHIPPING = 'GET_FLAT_FILE_ACTIONABLE_ORDER_DATA_SHIPPING'
-    GET_ORDER_REPORT_DATA_INVOICING = 'GET_ORDER_REPORT_DATA_INVOICING'
-    GET_FLAT_FILE_ORDER_REPORT_DATA_INVOICING = 'GET_FLAT_FILE_ORDER_REPORT_DATA_INVOICING'
-    GET_ORDER_REPORT_DATA_TAX = 'GET_ORDER_REPORT_DATA_TAX'
-    GET_FLAT_FILE_ORDER_REPORT_DATA_TAX = 'GET_FLAT_FILE_ORDER_REPORT_DATA_TAX'
-    GET_ORDER_REPORT_DATA_SHIPPING = 'GET_ORDER_REPORT_DATA_SHIPPING'
-    GET_FLAT_FILE_ORDER_REPORT_DATA_SHIPPING = 'GET_FLAT_FILE_ORDER_REPORT_DATA_SHIPPING'
+
     GET_FLAT_FILE_ALL_ORDERS_DATA_BY_LAST_UPDATE_GENERAL = 'GET_FLAT_FILE_ALL_ORDERS_DATA_BY_LAST_UPDATE_GENERAL'
-    GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL = 'GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL'
+
     GET_FLAT_FILE_ARCHIVED_ORDERS_DATA_BY_ORDER_DATE = 'GET_FLAT_FILE_ARCHIVED_ORDERS_DATA_BY_ORDER_DATE'
     GET_XML_ALL_ORDERS_DATA_BY_LAST_UPDATE_GENERAL = 'GET_XML_ALL_ORDERS_DATA_BY_LAST_UPDATE_GENERAL'
     GET_XML_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL = 'GET_XML_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL'
@@ -154,11 +149,38 @@ class ReportType(str, Enum):
     The information in this report may be up to 24 hours old. Please do not request a report more than once per 24 hour period
     Can be requested"""
 
-    # Order & Fulfilment Report Conventional Names
-    ALL_ORDERS_REPORT_BY_ORDER_DATE='GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL'
-    """For all sellers
+    # Order tracking reports:
+    # The Order tracking reports are available in all regions and for all sellers. The reports return all orders, regardless
+    # of fulfillment channel or shipment status. The reports are intended for order tracking, not to drive a seller's
+    # fulfillment process, as they do not include customer-identifying information and scheduling is not supported. Also note
+    # that for self-fulfilled orders, item price is not shown for orders in a "pending" state.
+    GET_ORDER_REPORT_DATA_INVOICING = 'GET_ORDER_REPORT_DATA_INVOICING'
+    GET_FLAT_FILE_ORDER_REPORT_DATA_INVOICING = 'GET_FLAT_FILE_ORDER_REPORT_DATA_INVOICING'
+    GET_ORDER_REPORT_DATA_TAX = 'GET_ORDER_REPORT_DATA_TAX'
+    GET_FLAT_FILE_ORDER_REPORT_DATA_TAX = 'GET_FLAT_FILE_ORDER_REPORT_DATA_TAX'
+    GET_ORDER_REPORT_DATA_SHIPPING = 'GET_ORDER_REPORT_DATA_SHIPPING'
+    GET_FLAT_FILE_ORDER_REPORT_DATA_SHIPPING = 'GET_FLAT_FILE_ORDER_REPORT_DATA_SHIPPING'
+    GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL = 'GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL'
+    """Flat File Orders By Order Date Report
+    For all sellers
 
     Returns all orders placed in the specified date range regardless of fulfillment channel or shipment status. This report is intended for order tracking, not to drive a seller's fulfillment process. It does not include customer identifying information and scheduling is not supported
 
     Can be requested
+    """
+
+    
+    # Order reports
+    # The date range that you specify when requesting an order report indicates when the orders became eligible for
+    # fulfillment (no longer in a "pending" state), not when the orders were created.
+    UNSHIPPED_ORDERS_REPORT = 'GET_FLAT_FILE_ACTIONABLE_ORDER_DATA_SHIPPING'
+    """Tab-delimited flat file report that contains only orders that are not confirmed as shipped.
+
+    This report accepts the following reportOptions values:
+
+    `ShowSalesChannel` - A Boolean value that indicates whether an additional column is added to the report that shows the sales channel. Default: false.
+    Example:
+    "reportOptions":{"ShowSalesChannel":"true"}
+
+    Can be requested or scheduled.
     """
